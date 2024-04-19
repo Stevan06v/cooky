@@ -38,7 +38,12 @@ class ConfigurationManager:
 
     def set_user_credentials(self, user):
         self.config['AUTHENTICATION']['EMAIL'] = user.email
-        self.config['AUTHENTICATION']['NICKNAME'] = user.nickname
+        self.config['AUTHENTICATION']['NICKNAME'] = user.nickname if user.nickname is not None else ''
+
+        self.save_config_file()
+
+    def set_user_email(self, email):
+        self.config['AUTHENTICATION']['EMAIL'] = email
 
         self.save_config_file()
 

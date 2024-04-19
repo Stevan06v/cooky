@@ -1,6 +1,12 @@
-class LoginRequestDTO:
-    def __init__(self, _email, _password):
-        self.email = _email
-        self.password = _password
+import json
+from dataclasses import dataclass, asdict
 
+
+@dataclass
+class LoginRequestDTO:
+    email: str
+    password: str
+
+    def to_json(self):
+        return json.dumps(asdict(self))
 

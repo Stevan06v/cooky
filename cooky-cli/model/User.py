@@ -1,16 +1,21 @@
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Dict
 
 
 @dataclass
 class User:
-    def __init__(self, _id, _nickname, _email):
-        self.id = _id
-        self.nickname = _nickname
-        self.email = _email
+    id: int
+    nickname: str
+    email: str
+    name: str
 
     @staticmethod
-    def create_user_from_response(response):
-        data = json.loads(response)
-        user = User(**data)
-        return user
+    def create_user_from_json(login_response_json):
+        filtered_data = {
+            'id': login_response_json['user']['id'],
+            'name': login_response_json['user']['name'],
+            'nickname': login_response_json['user']['nickname'],
+            'email': login_response_json['user']['email']
+        }
+        return User(**filtered_data)
