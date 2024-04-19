@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Receipe extends Model
 {
     use HasFactory;
+
+    public $fillable = [
+        "title",
+        "description",
+        "author",
+    ];
 }
