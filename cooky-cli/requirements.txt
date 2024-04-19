@@ -1,4 +1,7 @@
-click
-torch
+typer~=0.12.3
 gh-md-to-html
+rich
 Flask
+configparser
+typing_extensions~=4.11.0
+python-dotenv~=1.0.1
