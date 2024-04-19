@@ -39,6 +39,7 @@ class ConfigurationManager:
     def set_user_credentials(self, user):
         self.config['AUTHENTICATION']['EMAIL'] = user.email
         self.config['AUTHENTICATION']['NICKNAME'] = user.nickname
+
         self.save_config_file()
 
     def save_config_file(self):

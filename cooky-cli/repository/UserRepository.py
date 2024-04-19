@@ -1,5 +1,3 @@
-from abc import ABC
-
 from repository.IRepository import IRepository
 
 

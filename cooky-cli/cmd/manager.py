@@ -1,7 +1,6 @@
 import typer
 from typing_extensions import Annotated
 
-
 manager_app = typer.Typer(name="cookbook", help="Manage your recipes")
 
 
