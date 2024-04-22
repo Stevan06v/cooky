@@ -1,3 +1,5 @@
+import asyncio
+
 import typer
 from typing_extensions import Annotated
 from typing import Optional
@@ -35,8 +37,8 @@ auth_app.command(name="register dialog", help="Register cooky account with a tui
 def login(email: str = Annotated[str, typer.Option("--email", "-e")],
           password: str = Annotated[str, typer.Option("--password", "-p")]):
     with Live(
-        Spinner("arc", text=Text("Logging into application...", style="white")),
-        refresh_per_second=20,
+            Spinner("arc", text=Text("Logging into application...", style="white")),
+            refresh_per_second=20,
     ) as live:
         live.start()
 
@@ -63,10 +65,9 @@ auth_app.command(name="login", help="Log into your cooky account")(login)
 def register(email: Annotated[str, typer.Option("--email", "-e")],
              password: Annotated[str, typer.Option("--password", "-p")],
              nickname: Annotated[Optional[str], typer.Option("--nickname", "-n")]):
-
     with Live(
-        Spinner("arc", text=Text("Registration running...", style="white")),
-        refresh_per_second=20,
+            Spinner("arc", text=Text("Registration running...", style="white")),
+            refresh_per_second=20,
     ) as live:
         live.start()
 
@@ -87,4 +88,3 @@ def register(email: Annotated[str, typer.Option("--email", "-e")],
 
 
 auth_app.command(name="register", help="Create a cooky account.")(register)
-

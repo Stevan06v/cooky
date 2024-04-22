@@ -1,5 +1,4 @@
 from dataclasses import asdict
-
 import requests
 from model.User import User
 from exception.CookyException import CookyException
@@ -18,6 +17,7 @@ def singleton(class_):
 
 @singleton
 class AuthService:
+    # TODO: IMPLEMENT ASYNC-FUNCTIONALITY: https://proxiesapi.com/articles/making-asynchronous-http-requests-in-python-without-waiting-for-a-response
     @staticmethod
     def login(login_request_dto):
         url = "http://propromo.test/api/v1/users/login"
