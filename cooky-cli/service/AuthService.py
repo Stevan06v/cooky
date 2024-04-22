@@ -31,12 +31,11 @@ class AuthService:
 
         return User.create_user_from_json(login_response_json)
 
-
     @staticmethod
     def register(register_request_dto):
-        url = "http://cooky-rest/api/v1/register"
+        url = "http://propromo.test/api/v1/users"
         try:
-            register_response = requests.post(url, json=register_request_dto.to_json())
+            register_response = requests.post(url, json=asdict(register_request_dto))
             register_response_json = register_response.json()
 
             return User.create_user_from_json(register_response_json)
